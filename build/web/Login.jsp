@@ -27,7 +27,7 @@
                         <h2 class="text-center">Welcome</h2>
                         <img class="img-fluid mx-auto d-block rounded" src="https://cdn-icons-png.flaticon.com/512/2170/2170091.png" />
                         <br>
-                        <form>
+                        <form action="LoginLogic.jsp" method="post">
 
                             <div class="form-group">
                                 <input id="correo" name="email" class="form-control" type="email" placeholder="E-mail" required="required">
