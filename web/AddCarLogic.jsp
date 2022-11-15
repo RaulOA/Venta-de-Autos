@@ -19,7 +19,6 @@
     <body>
         <%
             try {
-
                 // This part manage the strings that comes in the "multipart/form-data"
                 FileItemFactory factory = new DiskFileItemFactory();
                 ServletFileUpload upload = new ServletFileUpload(factory);
@@ -56,7 +55,6 @@
                         String filePath = "G:/My Drive/My Github/Progra 2/crcars/web/img/";
                         file = new File(filePath + random + ".jpg");
                         uploadItem.write(file);
-
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
                         Statement statement = connection.createStatement();
@@ -68,15 +66,12 @@
                                 + AccountInfo.year + ", "
                                 + AccountInfo.price + ", '"
                                 + AccountInfo.body + "', '"
-                                + "img/"+ random +".jpg')";
-
+                                + "img/" + random + ".jpg')";
                         statement.executeUpdate(sql);
                         statement.close();
-
                         out.println("<script type='text/javascript'>alert('New Car Added Successfully');</script>");
                         RequestDispatcher rd = request.getRequestDispatcher("/Principal.jsp");
                         rd.include(request, response);
-
                     }
                 }
             } catch (NumberFormatException | ClassNotFoundException | SQLException e) {

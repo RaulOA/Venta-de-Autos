@@ -52,22 +52,5 @@
             </nav>
 
         </div>
-    </body>
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <p class="col-md-4 mb-0 text-muted">© Team #4, All right reserved.</p>
-            <div class="navbar-brand"><img 
-                    src="https://cdn-icons-png.flaticon.com/512/1048/1048314.png" 
-                    alt="Logo" 
-                    width="100" 
-                    height="100" 
-                    class="d-inline-block align-text-top">
-            </div>
-            <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a class="nav-link px-2 text-muted">Maria</a></li>
-                <li class="nav-item"><a class="nav-link px-2 text-muted">Isabel</a></li>
-                <li class="nav-item"><a class="nav-link px-2 text-muted">Raul</a></li>
-            </ul>
-        </footer>
-    </div>
+    </body>    
 </html>
