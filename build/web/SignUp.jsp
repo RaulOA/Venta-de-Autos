@@ -10,18 +10,43 @@
     </head>
     <body>
         <div class="bg-image" style="
-             background-image: url('https://img.freepik.com/fotos-premium/fondo-color-azul-suave-degradado-desenfocado-foto-abstracta_49683-4950.jpg?w=826');
-             height: 100vh;
+             background-image: url('https://img.freepik.com/foto-gratis/estudio-gris-vacio-liso-abstracto-bien-uso-como-fondo-informe-comercial-digital-plantilla-sitio-web-telon-fondo_1258-55961.jpg?w=826&t=st=1668614983~exp=1668615583~hmac=8afd12dc0412cc173c3400335d8f0da3f2f4e14087c7bdd03c1027308f17e2ca');
+             height: 100%;
              background-repeat: no-repeat;
              background-attachment: fixed;
              background-size: 100% 100%">            
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="Principal.jsp"><img 
+                            src="https://cdn-icons-png.flaticon.com/512/2077/2077164.png" 
+                            alt="Logo" 
+                            width="10%"
+                            class="d-inline-block">
+                        CrCars.com
+                    </a>
+                    <form class="d-flex" role="search">
+                        <div class="dropdown">
+                            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img 
+                                    src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
+                                    alt="Logo" 
+                                    width="60">
+                            </button>
+                            <ul class="btn btn-dark dropdown-menu">
+                                <li><a class="dropdown-item" href="Login.jsp">Login</a></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </nav>
             <main role="main" class="container my-auto">
                 <div class="row">
                     <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12">
                         <div class="signup-form">
                             <form action="AddClientLogic.jsp" method="post">
                                 <h2 class="text-center">Make your own account</h2>
-                                <img class="img-fluid mx-auto d-block rounded" src="https://cdn-icons-png.flaticon.com/512/8109/8109747.png" />
+                                <img class="img-fluid mx-auto d-block rounded" src="https://cdn-icons-png.flaticon.com/512/197/197717.png" />
+                                <br>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col">
@@ -34,15 +59,18 @@
                                             <input type="number" class="form-control" name="phone" placeholder="Phone" required="required">
                                         </div>
                                     </div>
+                                    <br>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control" name="email" placeholder="E-mail" required="required">
                                 </div>
+                                <br>
                                 <div class="row">
                                     <div class="col">
                                         <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                                     </div>
                                 </div>
+                                <br>
                                 <div class="text-center">
                                     <label class="form-check-label">
                                         <input type="checkbox" required="required"> Accept
@@ -54,6 +82,7 @@
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
                                 </div>
+                                <br>
                             </form>
                             <div class="text-center">Do you already have an account?
                                 <a href="Login.jsp">Login</a>
@@ -62,5 +91,19 @@
                     </div>
                 </div>
             </main>
+            <br>
+            <footer class="bg-dark text-center text-white">
+                <div class="container p-4">
+                    <section class="mb-4">
+                        <p>
+                            Wheels like never before
+                        </p>
+                    </section>
+                </div>
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2022 Copyright:
+                    <a class="text-white" href="Principal.jsp">CrCars.com</a>
+                </div>
+            </footer>
         </div>
     </body>

@@ -58,7 +58,7 @@
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
                         Statement statement = connection.createStatement();
-                        String sql = "insert into cars (caremail, carmake, carmodel, caryear, carprice, carbody, carimg) "
+                        String sql = "insert into cars (caremail, carmake, carmodel, caryear, carprice, carbody, carimg, carstatus) "
                                 + "values ('"
                                 + AccountInfo.email + "', '"
                                 + AccountInfo.make + "', '"
@@ -66,11 +66,12 @@
                                 + AccountInfo.year + ", "
                                 + AccountInfo.price + ", '"
                                 + AccountInfo.body + "', '"
-                                + "img/" + random + ".jpg')";
+                                + "img/" + random + ".jpg', "
+                                + "'For Sale')";
                         statement.executeUpdate(sql);
                         statement.close();
                         out.println("<script type='text/javascript'>alert('New Car Added Successfully');</script>");
-                        RequestDispatcher rd = request.getRequestDispatcher("/Principal.jsp");
+                        RequestDispatcher rd = request.getRequestDispatcher("/CarList.jsp");
                         rd.include(request, response);
                     }
                 }

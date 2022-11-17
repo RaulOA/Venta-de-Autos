@@ -37,7 +37,12 @@
                     rd.include(request, response);
                 } else {
                     String sql = "insert into clients (clientname, clientlastname, clientphone, clientemail, clientpassword) "
-                            + "values ('" + name + "', '" + lastname + "', " + phone + ", '" + email + "', '" + password + "')";
+                            + "values ('"
+                            + name + "', '"
+                            + lastname + "', "
+                            + phone + ", '"
+                            + email + "', '"
+                            + password + "')";
                     statement2.executeUpdate(sql);
                     statement2.close();
                     out.println("<script type='text/javascript'>alert('Successful User Registration');</script>");

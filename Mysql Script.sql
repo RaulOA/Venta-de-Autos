@@ -23,5 +23,12 @@ create table cars
     carbody varchar(50),
     carimg varchar(50)
 )
-
 select * from cars
+
+ALTER TABLE cars ADD carstatus VARCHAR(60);
+UPDATE cars SET carstatus = 'Sold Out' WHERE carimg = 'img/49294.jpg';
+UPDATE cars SET carstatus = 'For Sale' WHERE carimg = 'img/655904.jpg';
+SELECT * FROM customer WHERE last_name LIKE 'Pete%';
+SELECT * FROM customer WHERE last_name IN ('Smith', 'Johnson', 'Fredrich');
+DELETE FROM cars WHERE carmake='JAC';
+INSERT INTO cars (c1,c2) VALUES (v1,v2);

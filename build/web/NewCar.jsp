@@ -10,41 +10,31 @@
     </head>
     <body>
         <div class="bg-image" style="
-             background-image: url('https://img.freepik.com/fotos-premium/fondo-color-azul-suave-degradado-desenfocado-foto-abstracta_49683-4950.jpg?w=826');
-             height: 100vh;
+             background-image: url('https://img.freepik.com/foto-gratis/estudio-gris-vacio-liso-abstracto-bien-uso-como-fondo-informe-comercial-digital-plantilla-sitio-web-telon-fondo_1258-55961.jpg?w=826&t=st=1668614983~exp=1668615583~hmac=8afd12dc0412cc173c3400335d8f0da3f2f4e14087c7bdd03c1027308f17e2ca');
+             height: 100%;
              background-repeat: no-repeat;
              background-attachment: fixed;
              background-size: 100% 100%">
             <nav class="navbar navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <div class="navbar-brand"><img 
-                            src="https://cdn-icons-png.flaticon.com/512/1048/1048314.png" 
+                    <a class="navbar-brand" href="Principal.jsp"><img 
+                            src="https://cdn-icons-png.flaticon.com/512/2077/2077164.png" 
                             alt="Logo" 
-                            width="50" 
-                            height="40" 
-                            class="d-inline-block align-text-top">
-                        CrCars
-                    </div>
+                            width="10%"
+                            class="d-inline-block">
+                        CrCars.com
+                    </a>
                     <form class="d-flex" role="search">
                         <div class="dropdown">
                             <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img 
-                                    src="https://cdn-icons-png.flaticon.com/512/7816/7816997.png" 
+                                    src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
                                     alt="Logo" 
-                                    width="40" 
-                                    height="40">
-                                My Account
+                                    width="60">
                             </button>
                             <ul class="btn btn-dark dropdown-menu">
-                                <% boolean flag = true;
-                                    if (flag == true) {%>
-                                <li><a class="dropdown-item" href="Login.jsp">Login</a></li>
-                                <li><a class="dropdown-item" href="SignUp.jsp">Sign Up</a></li>
-                                    <%} else {%>  
-                                <li><a class="dropdown-item" href="#">My Cars</a></li>
-                                <li><a class="dropdown-item" href="#">New Car</a></li>
-                                <li><a class="dropdown-item" href="#">Sign Out</a></li>
-                                    <%}%> 
+                                <li><a class="dropdown-item" href="CarList.jsp">My Cars</a></li>
+                                <li><a class="dropdown-item" href="LogOut.jsp">Log Out</a></li>
                             </ul>
                         </div>
                     </form>
@@ -60,17 +50,21 @@
                             <form action="AddCarLogic.jsp" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <input id="txtmake" name="txtmake" class="form-control" type="text" placeholder="Make" required="required">
-                                </div>                                
+                                </div>      
+                                <br>
                                 <div class="form-group">
                                     <input id="txtmodel" name="txtmodel" class="form-control" type="text" placeholder="Model" required="required">
-                                </div>                            
+                                </div>  
+                                <br>
                                 <div class="form-group">
                                     <input id="txtyear" name="txtyear" class="form-control" type="number" placeholder="Year" required="required">
-                                </div>                            
+                                </div>     
+                                <br>
                                 <div class="form-group">
                                     <input id="txtPrice" name="txtPrice" class="form-control" type="number" placeholder="Price" required="required">
                                 </div>
-                                <div class="form-group">
+                                <br>
+                                <div class="form-group text-center">
                                     <select name="txtbody" id="txtbody" required="required">
                                         <option >--- Select Body Style ---</option>
                                         <option value="Cargo_Van">Cargo Van</option>
@@ -84,7 +78,8 @@
                                         <option value="Wagon">Wagon</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <br>
+                                <div class="form-group text-center">
                                     <label>Car Picture</label>
                                     <input id="file" type="file" name="img" required="required" size="50" style="width:59%"/>
                                 </div> 
@@ -96,6 +91,20 @@
                         </div>
                     </div>
                 </main>
-            </div>        
+            </div>    
+            <br>
+            <footer class="bg-dark text-center text-white">
+                <div class="container p-4">
+                    <section class="mb-4">
+                        <p>
+                            Wheels like never before
+                        </p>
+                    </section>
+                </div>
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2022 Copyright:
+                    <a class="text-white" href="Principal.jsp">CrCars.com</a>
+                </div>
+            </footer>
     </body>
 </html>

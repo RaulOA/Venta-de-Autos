@@ -20,11 +20,12 @@
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     con = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
                     Statement statement = con.createStatement();
-                    resultset = statement.executeQuery("select * from cars");
+                    resultset = statement.executeQuery("select * from cars WHERE caremail = '" + AccountInfo.email + "'");
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
+
             public void jspDestroy() {
                 try {
                     con.close();
@@ -35,41 +36,31 @@
             }
         %>   
         <div class="bg-image" style="
-             background-image: url('https://img.freepik.com/fotos-premium/fondo-color-azul-suave-degradado-desenfocado-foto-abstracta_49683-4950.jpg?w=826');
+             background-image: url('https://img.freepik.com/foto-gratis/estudio-gris-vacio-liso-abstracto-bien-uso-como-fondo-informe-comercial-digital-plantilla-sitio-web-telon-fondo_1258-55961.jpg?w=826&t=st=1668614983~exp=1668615583~hmac=8afd12dc0412cc173c3400335d8f0da3f2f4e14087c7bdd03c1027308f17e2ca');
              height: 100%;
              background-repeat: no-repeat;
              background-attachment: fixed;
              background-size: 100% 100%">
             <nav class="navbar navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <div class="navbar-brand"><img 
-                            src="https://cdn-icons-png.flaticon.com/512/1048/1048314.png" 
+                    <a class="navbar-brand" href="Principal.jsp"><img 
+                            src="https://cdn-icons-png.flaticon.com/512/2077/2077164.png" 
                             alt="Logo" 
-                            width="50" 
-                            height="40" 
-                            class="d-inline-block align-text-top">
-                        CrCars
-                    </div>
+                            width="10%"
+                            class="d-inline-block">
+                        CrCars.com
+                    </a>
                     <form class="d-flex" role="search">
                         <div class="dropdown">
                             <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img 
-                                    src="https://cdn-icons-png.flaticon.com/512/7816/7816997.png" 
+                                    src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
                                     alt="Logo" 
-                                    width="40" 
-                                    height="40">
-                                My Account
+                                    width="60">
                             </button>
                             <ul class="btn btn-dark dropdown-menu">
-                                <% boolean flag = true;
-                                    if (flag == true) {%>
-                                <li><a class="dropdown-item" href="Login.jsp">Login</a></li>
-                                <li><a class="dropdown-item" href="SignUp.jsp">Sign Up</a></li>
-                                    <%} else {%>  
-                                <li><a class="dropdown-item" href="#">My Cars</a></li>
-                                <li><a class="dropdown-item" href="#">New Car</a></li>
-                                <li><a class="dropdown-item" href="#">Sign Out</a></li>
-                                    <%}%> 
+                                <li><a class="dropdown-item" href="NewCar.jsp">New Car</a></li>
+                                <li><a class="dropdown-item" href="LogOut.jsp">Log Out</a></li>
                             </ul>
                         </div>
                     </form>
@@ -78,8 +69,10 @@
             <div class="container" style="margin-top:2%"> 
                 <div class="row row-cols-3 row-cols-md-3 g-4">
                     <%
-                        while (resultset.next()) {
+                        if (resultset.next()) {
+                            do {
                     %>
+                     
                     <div class="col">
                         <div class="card h-100">
                             <img src="<%=resultset.getString("carimg")%>" class="card-img-top" alt="Generic placeholder image">
@@ -114,6 +107,13 @@
                             <br>
                         </div>
                     </div>
+                    <%} while (resultset.next());
+                    } else {
+                    %>
+                    <a class="text-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/7486/7486754.png" alt="Bootstrap">
+                    </a>
+                    <h3 class="text-center">¡¡ You Don't Have Any Car !!</h3>
                     <%}%>
                 </div>
             </div>
@@ -124,11 +124,9 @@
                 <div class="container p-4">
                     <section class="mb-4">
                         <p>
-                            This site is built for academic purposes. 
-                            Any resemblance to another page is mere coincidence.
-                            Project 1 - Group 4 - Programming 2
+                            Wheels like never before
                         </p>
-                    </section>                 
+                    </section>
                 </div>
                 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
                     © 2022 Copyright:
@@ -136,5 +134,5 @@
                 </div>
             </footer>
         </div>
-    </body>    
+    </body>
 </html>
