@@ -19,22 +19,32 @@
     <body>
         <%
         try {
-    
+            String txtmake = request.getParameter("txtmake");
+            String txtmodel = request.getParameter("txtmodel");
+            int txtyear = Integer.parseInt(request.getParameter("txtyear"));
+            int txtPrice = Integer.parseInt(request.getParameter("txtPrice"));
+            String txtbody = request.getParameter("txtbody");
             Class.forName("com.mysql.cj.jdbc.Driver");
-             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "Admin$1234");
-                        Statement statement = connection.createStatement();
-                        String sql = "update cars set carmake = '" + AccountInfo.make  + 
-                            "', carbody = '" + AccountInfo.body + 
-                            "', carprice = " + AccountInfo.price + 
-                            ", caryear = '" + AccountInfo.year +  "'" +
-                            " where carmodel = " + AccountInfo.model;
-                        statement.executeUpdate(sql);
-                        statement.close();
-                        out.println("<script type='text/javascript'>alert('New Data Added Successfully');</script>");
-                        RequestDispatcher rd = request.getRequestDispatcher("/CarList.jsp");
-                        rd.include(request, response);
+            AccountInfo.make = txtmake;
+            AccountInfo.model = txtmodel;
+            AccountInfo.year = txtyear;
+            AccountInfo.price = txtPrice;
+            AccountInfo.body = txtbody;
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
+            Statement statement = connection.createStatement();
+                String sql = "update cars SET carmake = '" + txtmake  + 
+                    "', carbody = '" + txtbody + 
+                    "', carprice = " + txtPrice + 
+                    ", caryear = '" + txtyear +  "'" +
+                    ", carmodel = " + txtmodel;
+                statement.executeUpdate(sql);
+                statement.close();
+                out.println("<script type='text/javascript'>alert('New Data Added Successfully');</script>");
+                RequestDispatcher rd = request.getRequestDispatcher("/CarList.jsp");
+                rd.include(request, response);
         } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
             out.println(e.getMessage());
-        }%>
+        }
+        %>
     </body>
 </html>

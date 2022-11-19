@@ -19,22 +19,22 @@
     <body>
         <%
         try {
-            
+            String txtmake = request.getParameter("txtmake");
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "Admin$1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
             Statement statement = connection.createStatement();
-
-            String sql = "delete from cars where carmake = " + AccountInfo.make;
-
+            AccountInfo.make=txtmake;
+            String sql = "delete from cars WHERE carmake = " + AccountInfo.make;%>
+            <form action="AddCarLogic.jsp" method="post" enctype="multipart/form-data">
+        <%
             statement.executeUpdate(sql);
             statement.close();
-
-            RequestDispatcher rd = request.getRequestDispatcher("/ProductsServlet");
-            rd.include(request, response);
         } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
             out.println(e.getMessage());
         }
         %>
+            </form>
+
     </body>
 </html>
