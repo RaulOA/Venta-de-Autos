@@ -38,14 +38,14 @@
                         CrCars.com
                     </a>
                     <form class="d-flex" role="search">
-                        <div class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="btn-group dropstart">
+                            <button type="button" class="btn btn-dark dropdown-toggle" style="--bs-btn-active-bg: #212529" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" >
                                 <img 
                                     src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
                                     alt="Logo" 
                                     width="60">
                             </button>
-                            <ul class="btn btn-dark dropdown-menu">
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" style="--bs-dropdown-link-color: #ffffff; --bs-dropdown-bg: #353535;">
                                 <li><a class="dropdown-item" href="NewCar.jsp">New Car</a></li>
                                 <li><a class="dropdown-item" href="LogOut.jsp">Log Out</a></li>
                             </ul>
@@ -60,8 +60,9 @@
                             do {
                     %>                     
                     <div class="col">
-                        <div class="card h-100">
+                        <div class="card h-100" style="--bs-card-border-width: 10px; --bs-card-border-color: rgb(33 37 41); --bs-card-border-radius: 3.375rem; --bs-card-inner-border-radius: calc(3.375rem - 10px);">
                             <img src="<%=resultset.getString("carimg")%>" class="card-img-top" alt="Generic placeholder image">
+                            <hr>
                             <div class="card-body">
                                 <h5 class="card-title"><%=resultset.getString("carmake")%> <%=resultset.getString("carmodel")%></h5>
                                 <p class="card-text">Year : <%=resultset.getInt("caryear")%></p>
@@ -76,12 +77,12 @@
                                     switch (resultset.getString("carstatus")) {
                                         case "Sold Out":
                                 %>
-                                <a type="button" href="CarState.jsp?id=1&img=<%=resultset.getString("carimg")%>" class="btn btn-success position-absolute start-50 translate-middle">Sold Out</a>
+                                <a style="--bs-btn-border-radius: 1.375rem;" type="button" href="CarState.jsp?id=1&img=<%=resultset.getString("carimg")%>" class="btn btn-success position-absolute start-50 translate-middle">Sold Out</a>
                                 <%
                                         break;
                                     case "For Sale":
                                 %>
-                                <a type="button" href="CarState.jsp?id=2&img=<%=resultset.getString("carimg")%>" class="btn btn-info position-absolute start-50 translate-middle">For Sale</a>
+                                <a style="--bs-btn-border-radius: 1.375rem;" type="button" href="CarState.jsp?id=2&img=<%=resultset.getString("carimg")%>" class="btn btn-info position-absolute start-50 translate-middle">For Sale</a>
                                 <%
                                             break;
                                     }

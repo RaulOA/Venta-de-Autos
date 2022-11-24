@@ -10,8 +10,7 @@
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </head>
-    <body> 
-        
+    <body>
         <%
             ResultSet resultset = null;
             try {
@@ -22,7 +21,7 @@
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        %>  
+        %>
         <div class="bg-image" style="
              background-image: url('https://img.freepik.com/foto-gratis/estudio-gris-vacio-liso-abstracto-bien-uso-como-fondo-informe-comercial-digital-plantilla-sitio-web-telon-fondo_1258-55961.jpg?w=826&t=st=1668614983~exp=1668615583~hmac=8afd12dc0412cc173c3400335d8f0da3f2f4e14087c7bdd03c1027308f17e2ca');
              height: 100%;
@@ -38,27 +37,36 @@
                             class="d-inline-block">
                         CrCars.com
                     </a>
-                    <form class="d-flex" role="search">
-                        <div class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img 
-                                    src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
-                                    alt="Logo" 
-                                    width="60">
-                            </button>
-                            <ul class="btn btn-dark dropdown-menu">
-                                <%
-                                    if (AccountInfo.flag == true) {%>
-                                <li><a class="dropdown-item" href="CarList.jsp">My Cars</a></li>
-                                <li><a class="dropdown-item" href="NewCar.jsp">New Car</a></li>
-                                <li><a class="dropdown-item" href="LogOut.jsp">Log Out</a></li>
-                                    <%} else {%>  
-                                <li><a class="dropdown-item" href="Login.jsp">Login</a></li>
-                                <li><a class="dropdown-item" href="SignUp.jsp">Sign Up</a></li>
-                                    <%}%> 
-                            </ul>
-                        </div>
-                    </form>
+                    <div class="btn-group dropstart" >
+                        <button type="button" class="btn btn-dark dropdown-toggle" style="--bs-btn-active-bg: #212529" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" >
+                            <img 
+                                src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
+                                alt="Logo" 
+                                width="60">
+                        </button>
+                        <%
+                            if (AccountInfo.flag == true) {%>
+
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" style="--bs-dropdown-link-color: #ffffff; --bs-dropdown-bg: #353535;">
+                            <li><a class="dropdown-item" href="CarList.jsp">My Cars</a></li>
+                            <li><a class="dropdown-item" href="NewCar.jsp">New Car</a></li>
+                            <li><a class="dropdown-item" href="LogOut.jsp">Log Out</a></li>
+                        </ul>
+                        <%} else {%>
+                        <form action="LoginLogic.jsp" method="post" class="dropdown-menu p-4" style="--bs-dropdown-min-width: 15rem; --bs-dropdown-color: #ffffff; --bs-dropdown-bg: #353535;">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input name="email" type="email" class="form-control" id="email" placeholder="email@example.com" required="required">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input name="password" type="password" class="form-control" id="password" placeholder="Password" required="required">
+                            </div>
+                            <button style="--bs-btn-border-radius: 1.375rem;" type="submit" class="btn btn-primary">Sign In</button>
+                            <a type="button" style="--bs-btn-border-radius: 1.375rem;" class="btn btn-outline-primary" href="SignUp.jsp">Register</a>
+                        </form>
+                    </div>
+                    <%}%>
                 </div>
             </nav>
             <div class="container" style="margin-top:2%"> 
@@ -68,8 +76,9 @@
                             do {
                     %>
                     <div class="col">
-                        <div class="card h-100 position-relative">
+                        <div class="card h-100 position-relative" style="--bs-card-border-width: 10px; --bs-card-border-color: rgb(33 37 41); --bs-card-border-radius: 3.375rem; --bs-card-inner-border-radius: calc(3.375rem - 10px);">
                             <img src="<%=resultset.getString("carimg")%>" class="card-img-top" alt="Generic placeholder image">
+                            <hr>
                             <div class="card-body">
                                 <h5 class="card-title"><%=resultset.getString("carmake")%> <%=resultset.getString("carmodel")%></h5>
                                 <p class="card-text">Year : <%=resultset.getInt("caryear")%></p>

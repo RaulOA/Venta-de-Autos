@@ -25,14 +25,14 @@
                         CrCars.com
                     </a>
                     <form class="d-flex" role="search">
-                        <div class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="btn-group dropstart">
+                            <button type="button" class="btn btn-dark dropdown-toggle" style="--bs-btn-active-bg: #212529" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" >
                                 <img 
                                     src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
                                     alt="Logo" 
                                     width="60">
                             </button>
-                            <ul class="btn btn-dark dropdown-menu">
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" style="--bs-dropdown-link-color: #ffffff; --bs-dropdown-bg: #353535;">
                                 <li><a class="dropdown-item" href="CarList.jsp">My Cars</a></li>
                                 <li><a class="dropdown-item" href="LogOut.jsp">Log Out</a></li>
                             </ul>

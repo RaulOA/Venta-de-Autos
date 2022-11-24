@@ -24,19 +24,25 @@
                             class="d-inline-block">
                         CrCars.com
                     </a>
-                    <form class="d-flex" role="search">
-                        <div class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img 
-                                    src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
-                                    alt="Logo" 
-                                    width="60">
-                            </button>
-                            <ul class="btn btn-dark dropdown-menu">
-                                <li><a class="dropdown-item" href="Login.jsp">Login</a></li>
-                            </ul>
-                        </div>
-                    </form>
+                    <div class="btn-group dropstart" >
+                        <button type="button" class="btn btn-dark dropdown-toggle" style="--bs-btn-active-bg: #212529" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" >
+                            <img 
+                                src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
+                                alt="Logo" 
+                                width="60">
+                        </button>
+                        <form action="LoginLogic.jsp" method="post" class="dropdown-menu p-4" style="--bs-dropdown-min-width: 15rem; --bs-dropdown-color: #ffffff; --bs-dropdown-bg: #353535;">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input name="email" type="email" class="form-control" id="email" placeholder="email@example.com" required="required">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input name="password" type="password" class="form-control" id="password" placeholder="Password" required="required">
+                            </div>
+                            <button style="--bs-btn-border-radius: 1.375rem;" type="submit" class="btn btn-primary">Sign In</button>
+                        </form>
+                    </div>
                 </div>
             </nav>
             <main role="main" class="container my-auto">
@@ -84,9 +90,6 @@
                                 </div>
                                 <br>
                             </form>
-                            <div class="text-center">Do you already have an account?
-                                <a href="Login.jsp">Login</a>
-                            </div>
                         </div>                
                     </div>
                 </div>
