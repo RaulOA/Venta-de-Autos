@@ -1,15 +1,4 @@
-<%-- 
-    Document   : EditCar
-    Created on : Nov 16, 2022, 8:18:44 AM
-    Author     : tacho
---%>
-
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.SQLException"%>
-<%@page import="Logic.AccountInfo"%>
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,20 +6,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Edit Car</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    
     </head>
     <body>
         <%
-            String make = request.getParameter("make");
-            AccountInfo.make=make;
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from cars where carmake=" + AccountInfo.make);
-            resultSet.next();
+            ResultSet resultset = null;
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
+                Statement statement = con.createStatement();
+                resultset = statement.executeQuery("select * from cars WHERE carimg = '" + request.getParameter("id") + "'");
+                resultset.next();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         %>
-    <center>
         <div class="bg-image" style="
              background-image: url('https://img.freepik.com/foto-gratis/estudio-gris-vacio-liso-abstracto-bien-uso-como-fondo-informe-comercial-digital-plantilla-sitio-web-telon-fondo_1258-55961.jpg?w=826&t=st=1668614983~exp=1668615583~hmac=8afd12dc0412cc173c3400335d8f0da3f2f4e14087c7bdd03c1027308f17e2ca');
              height: 100%;
@@ -55,7 +46,7 @@
                                     width="60">
                             </button>
                             <ul class="btn btn-dark dropdown-menu">
-                                <li><a class="dropdown-item" href="NewCar.jsp">New Car</a></li>
+                                <li><a class="dropdown-item" href="CarList.jsp">My Cars</a></li>
                                 <li><a class="dropdown-item" href="LogOut.jsp">Log Out</a></li>
                             </ul>
                         </div>
@@ -65,31 +56,29 @@
             <div class="container" style="">
                 <main role="main" class="container my-auto">
                     <div class="row">
-                        <form action="NewData.jsp" method="post" enctype="multipart/form-data">
-                        <%--  .<img class="img-fluid mx-auto d-block rounded" width="120" height="120" src="https://cdn-icons-png.flaticon.com/512/1998/1998575.png" /> --%>
-                        <br> 
-                        <center>
-                            New Data
-                        </center>
+                        <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12">
+                            <h2 class="text-center">Add New Car</h2>
+                            <img class="img-fluid mx-auto d-block rounded" width="120" height="120" src="<%=resultset.getString("carimg")%>" />
+                            <br>
+                            <form action="EditCarLogic.jsp?id=<%=request.getParameter("id")%>" method="post">
                                 <div class="form-group">
-                                    <label for='AccountInfo.make'>Make</label>
-                                    <input name="txtmake" type="text" class="form-control" id="txtmake" >
-                                </div>
+                                    <input value="<%=resultset.getString("carmake")%>" id="txtmake" name="txtmake" class="form-control" type="text" placeholder="Make" required="required">
+                                </div>      
+                                <br>
                                 <div class="form-group">
-                                     <label for="AccountInfo.model">Model</label>
-                                     <input name="txtmodel" type="text" class="form-control" id="txtmodel" >
-                                </div>
+                                    <input value="<%=resultset.getString("carmodel")%>" id="txtmodel" name="txtmodel" class="form-control" type="text" placeholder="Model" required="required">
+                                </div>  
+                                <br>
                                 <div class="form-group">
-                                    <label for="AccountInfo.year">Year</label>
-                                    <input name="txtyear" type="number" class="form-control" id="txtyear" >
-                                </div>
+                                    <input value="<%=resultset.getString("caryear")%>" id="txtyear" name="txtyear" class="form-control" type="number" placeholder="Year" required="required">
+                                </div>     
+                                <br>
                                 <div class="form-group">
-                                    <label for="AccountInfo.price">Price</label>
-                                    <input name="txtPrice" type="number" class="form-control" id="txtPrice" >                            
+                                    <input value="<%=resultset.getString("carprice")%>" id="txtPrice" name="txtPrice" class="form-control" type="number" placeholder="Price" required="required">
                                 </div>
-                       
-                            <div class="form-group text-center">
-                                    <select name="txtbody" id="txtbody">
+                                <br>
+                                <div class="form-group text-center">
+                                    <select name="txtbody" id="txtbody" required="required">
                                         <option >--- Select Body Style ---</option>
                                         <option value="Cargo_Van">Cargo Van</option>
                                         <option value="Convertible">Convertible</option>
@@ -101,21 +90,29 @@
                                         <option value="Sedan">Sedan</option>
                                         <option value="Wagon">Wagon</option>
                                     </select>
-                            </div>
-                            <br>
-                                <div class="form-group text-center">
-                                    <label>New Car Picture</label>
-                                    <input id="file" type="file" name="img" size="50" style="width:59%"/>
-                                </div> 
-
-                            <br>
-                            <div class="text-center"">
-                                <button type="submit" class="btn btn-primary mb-2">Edit</button>
-                            </div>
-                             </form>
+                                </div>
+                                <br>
+                                <div class="text-center"">
+                                    <button type="submit" class="btn btn-primary mb-2">Update</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-            </div>
-        </div>
-    </center>                    
+                </main>
+            </div>    
+            <br>
+            <footer class="bg-dark text-center text-white">
+                <div class="container p-4">
+                    <section class="mb-4">
+                        <p>
+                            Wheels like never before
+                        </p>
+                    </section>
+                </div>
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2022 Copyright:
+                    <a class="text-white" href="Principal.jsp">CrCars.com</a>
+                </div>
+            </footer>
     </body>
 </html>

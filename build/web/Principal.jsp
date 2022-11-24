@@ -11,30 +11,18 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </head>
     <body> 
-        <%!
-            Connection con;
-            ResultSet resultset;
-
-            public void jspInit() {
-                try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
-                    Statement statement = con.createStatement();
-                    resultset = statement.executeQuery("select * from cars WHERE carstatus = 'For Sale'");
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+        
+        <%
+            ResultSet resultset = null;
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
+                Statement statement = con.createStatement();
+                resultset = statement.executeQuery("select * from cars WHERE carstatus = 'For Sale'");
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
-
-            public void jspDestroy() {
-                try {
-                    con.close();
-                    resultset.close();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        %>   
+        %>  
         <div class="bg-image" style="
              background-image: url('https://img.freepik.com/foto-gratis/estudio-gris-vacio-liso-abstracto-bien-uso-como-fondo-informe-comercial-digital-plantilla-sitio-web-telon-fondo_1258-55961.jpg?w=826&t=st=1668614983~exp=1668615583~hmac=8afd12dc0412cc173c3400335d8f0da3f2f4e14087c7bdd03c1027308f17e2ca');
              height: 100%;

@@ -44,8 +44,7 @@
                 <main role="main" class="container my-auto">
                     <div class="row">
                         <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12">
-                            <h2 class="text-center">Add New Car</h2>
-                            <img class="img-fluid mx-auto d-block rounded" width="120" height="120" src="https://cdn-icons-png.flaticon.com/512/5044/5044485.png" />
+                            <img class="img-fluid mx-auto d-block rounded" width="120" height="120" src="https://cdn-icons-png.flaticon.com/512/6903/6903741.png" />
                             <br>
                             <form action="AddCarLogic.jsp" method="post" enctype="multipart/form-data">
                                 <div class="form-group">

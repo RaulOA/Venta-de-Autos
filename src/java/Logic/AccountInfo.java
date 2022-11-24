@@ -1,5 +1,6 @@
 package Logic;
 public class AccountInfo {
+    
     public static String email = "Default@default.com";
     public static boolean flag = false;
     public static String password;

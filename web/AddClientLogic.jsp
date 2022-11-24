@@ -15,22 +15,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Registration</title>
     </head>
     <body>
         <%
             response.setContentType("text/html;charset=UTF-8");
             try {
-                String name = request.getParameter("name");
-                String lastname = request.getParameter("lastname");
-                int phone = Integer.parseInt(request.getParameter("phone"));
-                String email = request.getParameter("email");
-                String password = request.getParameter("password");
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
                 Statement statement = connection.createStatement();
                 Statement statement2 = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("select * from clients where clientemail = '" + email + "'");
+                ResultSet resultSet = statement.executeQuery("select * from clients where clientemail = '" + request.getParameter("email") + "'");
                 if (resultSet.next()) {
                     out.println("<script type='text/javascript'>alert('Email Already Exist');</script>");
                     RequestDispatcher rd = request.getRequestDispatcher("/SignUp.jsp");
@@ -38,11 +33,11 @@
                 } else {
                     String sql = "insert into clients (clientname, clientlastname, clientphone, clientemail, clientpassword) "
                             + "values ('"
-                            + name + "', '"
-                            + lastname + "', "
-                            + phone + ", '"
-                            + email + "', '"
-                            + password + "')";
+                            + request.getParameter("name") + "', '"
+                            + request.getParameter("lastname") + "', "
+                            + Integer.parseInt(request.getParameter("phone")) + ", '"
+                            + request.getParameter("email") + "', '"
+                            + request.getParameter("password") + "')";
                     statement2.executeUpdate(sql);
                     statement2.close();
                     out.println("<script type='text/javascript'>alert('Successful User Registration');</script>");

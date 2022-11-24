@@ -1,14 +1,12 @@
-<%@page import="java.util.Random"%>
-<%@page import="org.apache.tomcat.util.http.fileupload.FileItemFactory"%>
-<%@page import="Logic.AccountInfo"%>
 <%@page import="java.sql.*"%>
-<%@page import="org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="org.apache.tomcat.util.http.fileupload.FileItem"%>
-<%@page import="org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload"%>
-<%@page import="org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory"%>
+<%@page import="java.util.*"%>
 <%@page import="java.io.File"%>
+<%@page import="Logic.AccountInfo"%>
+<%@page import="org.apache.tomcat.util.http.fileupload.FileItem"%>
+<%@page import="org.apache.tomcat.util.http.fileupload.FileItemFactory"%>
+<%@page import="org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory"%>
+<%@page import="org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload"%>
+<%@page import="org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
