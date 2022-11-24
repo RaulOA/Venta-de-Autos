@@ -46,7 +46,6 @@
                         </button>
                         <%
                             if (AccountInfo.flag == true) {%>
-
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" style="--bs-dropdown-link-color: #ffffff; --bs-dropdown-bg: #353535;">
                             <li><a class="dropdown-item" href="CarList.jsp">My Cars</a></li>
                             <li><a class="dropdown-item" href="NewCar.jsp">New Car</a></li>
@@ -69,6 +68,28 @@
                     <%}%>
                 </div>
             </nav>
+            <div class="col-md-9 col-md-push-1 position-absolute top-0 start-50" style="left: 30%!important; width: 40%;margin-top:1%;">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <form action="FilterCar.jsp" method="post">
+                                <div class="input-group">
+                                    <select name="category" class="btn btn-outline-secondary" data-toggle="dropdown">
+                                        <option value="Make" >Make</option>
+                                        <option value="Model" >Model</option>
+                                        <option value="Year" >Year</option>
+                                        <option value="Body" > Body</option>
+                                    </select>
+                                    <input type="text" class="form-control" name="txtsearch" placeholder="Search term...">
+                                    <button class="btn btn-outline-secondary" type="submit">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/200/200941.png" alt="Bootstrap" width="30" height="34">
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container" style="margin-top:2%"> 
                 <div class="row row-cols-3 row-cols-md-3 g-4">
                     <%

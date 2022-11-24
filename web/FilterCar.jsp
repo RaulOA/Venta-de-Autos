@@ -12,12 +12,26 @@
     </head>
     <body>
         <%
+            
             ResultSet resultset = null;
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost/crcars", "root", "ne5ddd90");
-                Statement statement = con.createStatement();
-                resultset = statement.executeQuery("select * from cars WHERE carstatus = 'For Sale'");
+                Statement statement = con.createStatement();                
+                switch (request.getParameter("category")) {
+                        case "Make":
+                            resultset = statement.executeQuery("select * from cars WHERE carmake like '%" + request.getParameter("txtsearch") + "%' ");
+                            break;
+                        case "Model":
+                            resultset = statement.executeQuery("select * from cars WHERE carmodel like '%" + request.getParameter("txtsearch") + "%' ");
+                            break;
+                        case "Year":
+                            resultset = statement.executeQuery("select * from cars WHERE caryear = " +  request.getParameter("txtsearch") +"");
+                            break;
+                        case "Body":
+                            resultset = statement.executeQuery("select * from cars WHERE carbody like '%" + request.getParameter("txtsearch") + "%' ");
+                            break;
+                    }      
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
