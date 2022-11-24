@@ -26,14 +26,6 @@ a. El sistema debe permitirle al usuario registrado poder registrar un vehículo
     El proyecto debe ejecutarse y probarse frente al profesor en una sala privada de Teams. 
     El profesor hará preguntas aleatorias a los alumnos para verificar el conocimiento del sistema por parte de todos los miembros.
     
-    Integrantes del grupo :
-    
-María José Gutiérrez
-
-María Isabel Arrieta
-
-Raúl Alberto Ortega Acuña
-    
 Algunops Pantallazos:
 
 Principal:
