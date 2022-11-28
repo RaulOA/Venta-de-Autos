@@ -67,7 +67,7 @@
                                 <h5 class="card-title"><%=resultset.getString("carmake")%> <%=resultset.getString("carmodel")%></h5>
                                 <p class="card-text">Year : <%=resultset.getInt("caryear")%></p>
                                 <p class="card-text">Body Style : <%=resultset.getString("carbody")%></p>
-                                <p class="card-text">Price : <%=resultset.getInt("carprice")%></p>
+                                <p class="card-text">Price : $<%=resultset.getInt("carprice")%></p>
                             </div>
                             <div class="position-relative">
                                 <a class="navbar-brand position-absolute start-0 translate-middle-y" href="EditCar.jsp?id=<%=resultset.getString("carimg")%>">

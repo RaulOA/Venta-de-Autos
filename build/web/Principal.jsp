@@ -101,10 +101,21 @@
                             <img src="<%=resultset.getString("carimg")%>" class="card-img-top" alt="Generic placeholder image">
                             <hr>
                             <div class="card-body">
-                                <h5 class="card-title"><%=resultset.getString("carmake")%> <%=resultset.getString("carmodel")%></h5>
+                                <h4 class="card-title"><%=resultset.getString("carmake")%> <%=resultset.getString("carmodel")%></h4>
                                 <p class="card-text">Year : <%=resultset.getInt("caryear")%></p>
                                 <p class="card-text">Body Style : <%=resultset.getString("carbody")%></p>
-                                <p class="card-text">Price : <%=resultset.getInt("carprice")%></p>
+                                <p class="card-text">Price : $<%=resultset.getInt("carprice")%></p>
+                                <hr>
+                                <%AccountInfo client = new AccountInfo();
+                                    client.ownerdata(resultset.getString("caremail"));
+                                %>
+                                <h4 class="card-title">Contact Info: <%=AccountInfo.name%> <%=AccountInfo.lastname%></h4>
+                                <p class="card-text">Email : <%=resultset.getString("caremail")%></p>
+                                <p class="card-text">Phone : <%=AccountInfo.phone%></p>
+                                <%AccountInfo.name = null;
+                                AccountInfo.lastname = null;
+                                AccountInfo.phone = 0;
+                                %>
                             </div>
                             <a class="navbar-brand" href="BuyCar.jsp?id=<%=resultset.getString("carimg")%>">
                                 <img class="position-absolute bottom-0 end-0" src="https://cdn-icons-png.flaticon.com/512/4856/4856381.png" alt="Bootstrap" width="30%">

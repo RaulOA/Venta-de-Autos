@@ -43,7 +43,7 @@
                             case "txtbody":
                                 AccountInfo.body = value;
                                 break;
-                        }
+                        }                        
                     } else {
                         // if not it means that item isn'n a simple form field. 
                         Random rand = new Random();
