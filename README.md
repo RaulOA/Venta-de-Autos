@@ -26,32 +26,24 @@ a. El sistema debe permitirle al usuario registrado poder registrar un vehículo
     El proyecto debe ejecutarse y probarse frente al profesor en una sala privada de Teams. 
     El profesor hará preguntas aleatorias a los alumnos para verificar el conocimiento del sistema por parte de todos los miembros.
     
-    Integrantes del grupo :
-    
-María José Gutiérrez
-
-María Isabel Arrieta
-
-Raúl Alberto Ortega Acuña
-    
 Algunops Pantallazos:
 
 Principal:
-![image](https://user-images.githubusercontent.com/98372790/202523481-9cf4c44e-994b-4b5a-9eea-6d12ce8b417b.png)
+![image](https://user-images.githubusercontent.com/98372790/203823075-119d6792-3175-4973-860c-0380395b032f.png)
 
 
 Mis Coches:
-![image](https://user-images.githubusercontent.com/98372790/202523360-6cfec7e8-7aa6-434e-aef5-f59dbefa9b1d.png)
+![image](https://user-images.githubusercontent.com/98372790/203823458-2380a125-b6ba-4afc-817b-af1f6df61bc6.png)
 
 
 Agregar Coche:
-![image](https://user-images.githubusercontent.com/98372790/202523686-9d1fe8d5-3fcc-4d7e-9a3b-97fd4c105c29.png)
+![image](https://user-images.githubusercontent.com/98372790/203824327-763c5ac2-86e6-4074-beee-1080e3b556f7.png)
 
 
 Login:
-![image](https://user-images.githubusercontent.com/98372790/202523838-1c6d62a4-6d7b-4ef7-bab2-ca144ee7a8c4.png)
+![image](https://user-images.githubusercontent.com/98372790/203823309-605edc5d-40cc-448d-9eff-6ce73e621094.png)
 
 
 Sign Up:
-![image](https://user-images.githubusercontent.com/98372790/202523985-694987fe-fc90-4dbd-bab9-8804a8440530.png)
+![image](https://user-images.githubusercontent.com/98372790/203823904-b78679e4-128e-4ae9-9bf1-24cd4251429d.png)
 
