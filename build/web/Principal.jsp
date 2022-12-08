@@ -38,7 +38,12 @@
                         CrCars.com
                     </a>
                     <div class="btn-group dropstart" >
-                        <button type="button" class="btn btn-dark dropdown-toggle" style="--bs-btn-active-bg: #212529" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" >
+                        <button type="button" 
+                                class="btn btn-dark dropdown-toggle" 
+                                style="--bs-btn-active-bg: #212529" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false" 
+                                data-bs-auto-close="outside" >
                             <img 
                                 src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" 
                                 alt="Logo" 

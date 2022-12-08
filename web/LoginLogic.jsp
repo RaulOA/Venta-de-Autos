@@ -22,7 +22,7 @@
                 statement.close();
             } else {
                 out.println("<script type='text/javascript'>alert('Wrong email or password');</script>");
-                RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/Principal.jsp");
                 rd.include(request, response);
                 statement.close();
             }

@@ -41,7 +41,7 @@
                     statement2.executeUpdate(sql);
                     statement2.close();
                     out.println("<script type='text/javascript'>alert('Successful User Registration');</script>");
-                    RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("/Principal.jsp");
                     rd.include(request, response);
                 }
                 statement.close();
